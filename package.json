@@ -1,0 +1,24 @@
+{
+  "name": "nodejsmysqlinsert",
+  "version": "1.0.0",
+  "description": "Tutorial to insert in MySQL using Node.js and Express.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarojmhrzn/nodejsMySQLInsert.git"
+  },
+  "keywords": [
+    "Node.js",
+    "Express.js",
+    "MySQL"
+  ],
+  "author": "Saroj Maharjan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sarojmhrzn/nodejsMySQLInsert/issues"
+  },
+  "homepage": "https://github.com/sarojmhrzn/nodejsMySQLInsert#readme"
+}
