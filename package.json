@@ -22,7 +22,10 @@
   },
   "homepage": "https://github.com/sarojmhrzn/nodejsMySQLInsert#readme",
   "dependencies": {
+    "bluebird": "^3.7.2",
+    "dotenv": "^16.0.2",
     "express": "^4.18.1",
-    "mysql": "^2.18.1"
+    "mysql2": "^2.3.3",
+    "namshi-node-mysql": "^2.1.0"
   }
 }

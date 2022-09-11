@@ -2,13 +2,14 @@ const env = process.env;
 
 // do not put password or any sensitive info here, done only for demo
 const config = {
+    PORT: env.PORT || 3000,
     db: {
-        host: env.DB_HOST || 'sql6.freemysqlhosting.net',
-        user: env.DB_USER || 'sql6515614',
-        password: env.DB_PASSWORD || 'uBWMzgb7gS',
-        database: env.DB_NAME || 'sql6515614',
-        waitForConnections: true
-    }
+        DB_USERNAME: env.USERNAME || 'sr6y7uc3u5c3tojios79',
+        DB_PASSWORD: env.PASSWORD,
+        DB_HOST: env.HOST || 'us-east.connect.psdb.cloud',
+        NAME: env.NAME || 'cars'
+    },
+    listPerPage: env.LIST_PER_PAGE || 10,
 };
 
 module.exports = config;

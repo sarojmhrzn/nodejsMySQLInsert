@@ -1,19 +1,11 @@
-const mysql = require('mysql');
 const config = require('../config');
+const mysql = require('mysql2');
 
-let connection = mysql.createConnection({
-    host: config.db.host, // Replace with your host name
-    user: config.db.user,      // Replace with your database username
-    password: config.db.password,      // Replace with your database password
-    database: config.db.database // // Replace with your database Name
-});
+const connection = mysql.createConnection({
+    uri: `mysql://${config.db.DB_USERNAME}:${config.db.DB_PASSWORD}@${config.db.DB_HOST}/${config.db.NAME}?ssl={"rejectUnauthorized":false}`,
+    multipleStatements: false
+})
 
-connection.connect(function(err) {
-    try{
-        console.log('Database is connected successfully !');
-    } catch (err) {
-        throw err;
-    }
-});
+console.log('Connected to PlanetScale!');
 
 module.exports = connection;

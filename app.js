@@ -2,6 +2,7 @@
 const express = require('express');
 
 //import services
+const config = require('./config');
 const carService = require('./services/car');
 
 let app = express();
@@ -14,33 +15,25 @@ app.get('/', function(req, res, next) {
 });
 
 // Get all cars
-app.get('/cars', function(req, res, next) {
-    carService.getAll()
-        .then(function (cars) {
-            res.json({cars});
-        }).catch(function (err) {
-            next(err);
-        })
+app.get('/cars', async function(req, res, next) {
+    const rows = await carService.getAll(req.query.page);
+    res.json({data: rows.data[0]});
 });
 
 
 // Save car data
-app.post('/car', function(req, res, next) {
-    let name = req.body.name;
-    let modelNumber = req.body.modelNumber;
-    let price = req.body.price;
+app.post('/car', async function(req, res, next) {
+    const name = req.body.name;
+    const modelNumber = req.body.modelNumber;
+    const price = req.body.price;
 
-    carService.insert(name, modelNumber, price)
-        .then(function (resp) {
-            res.json(resp)
-        }).catch(function (err) {
-            next(err);
-        });
+    const result = await carService.insert(name, modelNumber, price);
+    res.json({message: result});
 });
 
 // listen port 3000
-app.listen(3000, function () {
-    console.log('Node app is running on port 3000');
+app.listen(config.PORT, function () {
+    console.log(`Node app is running on port ${config.PORT}`);
 });
 
 module.exports = app;
